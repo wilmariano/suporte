@@ -1,0 +1,11 @@
+[Unit]
+Description=My Script Service
+After=multi-user.target
+
+[Service]
+Type=idle
+ExecStart=/usr/bin/python3 /var/www/bot/app.py
+Environment="PYTHONPATH=$PYTHONPATH:/home/ubuntu/.local/lib/python3.6/site-packages/"
+
+[Install]
+WantedBy=multi-user.target
