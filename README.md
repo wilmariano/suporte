@@ -7,11 +7,23 @@ After installing Selenium, Chatterbot and Flask, configure this chatbot and enjo
 * Configurando na inicialização do sistema
 ```
 sudo nano /lib/systemd/system/suporte.service
+```
 Copie e cole o script do arquivo que corresponde ao arquivo criado na VPS (Não esqueça de mudar os caminhos)
-ExecStart=/usr/bin/python3 /var/www/bot/app.py > /var/www/bot/suporte.log 2>&1 (Para configurar saida de logs)
+```
+ExecStart=/usr/bin/python3 /var/www/bot/app.py > /var/www/bot/suporte.log 2>&1
+```
+Comando acima é para configurar saida de logs
+```
 sudo chmod 644 /lib/systemd/system/suporte.service
-sudo systemctl daemon-reload && sudo systemctl enable suporte.service (Habilita o arquivo no systemd)
+```
+```
+sudo systemctl daemon-reload && sudo systemctl enable suporte.service
+```
+Comando acima habilita o arquivo no systemd
+```
 sudo reboot
+```
+```
 sudo systemctl status suporte.service
 ```
 -----------------------------------------------
@@ -23,3 +35,4 @@ sudo systemctl status suporte.service
 * pip install Flask
 * https://chromedriver.chromium.org/downloads
 * https://stackoverflow.com/questions/35641414/python-import-of-local-module-failing-when-run-as-systemd-systemctl-service
+* https://pt.stackoverflow.com/questions/402231/como-executar-programa-em-python-ao-iniciar-linux-mint
