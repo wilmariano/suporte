@@ -10,7 +10,17 @@ sudo nano /lib/systemd/system/suporte.service
 ```
 Copie e cole o script do arquivo que corresponde ao arquivo criado na VPS (Não esqueça de mudar os caminhos)
 ```
-ExecStart=/usr/bin/python3 /var/www/bot/app.py > /var/www/bot/suporte.log 2>&1
+[Unit]
+Description=My Script Service
+After=multi-user.target
+
+[Service]
+Type=idle
+ExecStart=/usr/bin/python3 /var/www/suporte/app.py > /var/www/suporte/suporte.log 2>&1
+Environment="PYTHONPATH=$PYTHONPATH:/home/ubuntu/.local/lib/python3.6/site-packages/"
+
+[Install]
+WantedBy=multi-user.target
 ```
 Comando acima é para configurar saida de logs
 ```
